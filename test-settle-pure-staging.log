@@ -1,0 +1,42 @@
+{"case":"K-4206a CONTROL verifyPayoutPrefs v2 own sig verifies (M-1856)","chainsReturned":[{"chain":"base","assets":["stable"],"priority":1},{"chain":"robinhood","assets":["stable","eth"],"priority":2}],"controlPasses":true}
+{"case":"K-4206 verifyPayoutPrefs v1 legacy window (M-1856)","acceptedNow":true,"rejectedAfter2031":true}
+{"case":"K-4207 verifyPayoutPrefs stale/future/wrong-host rejected (M-1857)","staleNull":true,"futureNull":true,"wrongHostNull":true}
+{"case":"K-4208 verifyPayoutPrefs chains[].address + signed payee plan (M-1858)","addressPreserved":true,"planAccepted":true,"payeeMode":"signed_chain_address"}
+{"case":"K-4209 normalizeSettlePolicy maxBridgeFeeBps bounds (M-1859)","rejected2001":true,"accepted2000":true,"accepted0":true,"default500":true}
+{"case":"K-4210 verifySettlePlan bridge toChain != settlementChain (M-1860)","ok":false,"code":"plan_mismatch","msg":"The plan's bridge does not end on its own settlement chain (or starts on an unknown chain).","refusedPlanMismatch":true}
+{"case":"K-4211 verifySettlePlan bridge spends ETH, policy stable-only (M-1861)","ok":false,"code":"policy_asset_not_allowed","msg":"The plan's bridge would spend eth, which policy.allowedAssets does not allow.","refusedPolicyAsset":true}
+{"case":"K-4212 verifySettlePlan worstLossBps 600 > maxBridgeFeeBps 500 (M-1862)","refusedFeeTooHigh":true,"control200Passes":true,"controlWorstFloor300":true}
+{"case":"K-4213 verifySettlePlan payee != seller without signed prefs (M-1863)","refusedPayeeNotSigned":true,"signedAccepted":true,"signedPayeeMode":"signed_chain_address"}
+{"case":"K-4214 verifyPayeePortable contract code on one chain (M-1864)","emptyOk":true,"refusedContractWallet":true}
+{"case":"K-4215 verifyPayeePortable EIP-7702 delegation accepted (M-1865)","eip7702Ok":true,"mixedContractRefused":true}
+{"case":"K-4216 expectedSettlePick prefs no-bridge beats bridge (M-1866)","noBridgeFirst":true,"bridgeFallback":true,"noneNull":true}
+{"case":"K-4217 rejectNeedlessBridge (M-1867)","refusedNeedlessBridge":true,"bridgeNeededPasses":true,"noBridgePlanPasses":true}
+{"case":"K-4218 runSettleMachine K-4186 re-grade: OLD agreement w/o settle tag NOT adopted (M-1868)","ok":false,"code":"agreement_mismatch","msg":"Agreement 7 does not match this settlement: terms (settle tag).","halted":"halted","openCalled":false,"haltedAgreementMismatch":true,"termsTagChecked":true}
+{"case":"K-4218 CONTROL runSettleMachine agreement WITH settle tag adopted (M-1868)","ok":true,"phase":"done","agreementId":"7","openCalled":false,"adoptedTaggedId":true,"phaseDone":true}
+{"case":"K-4394 verifySettlePlan over-maxUsd + amount mismatch refused; mixed worstLoss 0 floored to 300bps (passes at 500, refused at 200) (M-2044)","overMaxRefused":true,"mismatchRefused":true,"mixedZeroPassesAt500":true,"mixedZeroRefusedAt200":true}
+{"case":"K-4395 verifyPayoutPrefs other-signer + tampered-chains rejected, own v2 verifies (M-2045)","otherSignerNull":true,"tamperedChainsNull":true,"ownVerifies":true}
+{"case":"K-4396 normalizeSettlePolicy bad policies refused, defaults intact (M-2046)","allBadRefused":true,"defaultsOk":true}
+{"case":"K-4481 verifySettlePlan mixed worstLoss 0 floored to 300bps refused at maxBridgeFeeBps 0; same-kind without worstLossBps passes at 0 (M-2131)","mixedRefusedAt0":true,"sameKindPassesAt0":true}
+{"case":"K-4482 verifySettlePlan bridge amountUsd omitted passes maxUsd check; amountUsd 9999 refused (M-2132)","omittedPasses":true,"hugeRefused":true}
+{"case":"K-4483 verifySettleState amountUsd NOT covered by stateMac (25->250 caught only by maxUsd; 25->50 passes silently); policy tamper caught by MAC; control passes (M-2133)","controlPasses":true,"tampered250Code":"policy_max_usd","tampered250NotMac":true,"tampered50PassesSilently":true,"tamperedPolicyRefused":true}
+{"case":"K-4484 runSettleMachine opening: agreements feed unreadable -> nothing opened (M-2134)","ok":false,"code":"agreement_feed_unreadable","msg":"feed down","halted":"opening","openCalled":false,"feedUnreadable":true}
+{"case":"K-4617 REPRODUCE K-4483 verifySettleState amountUsd outside stateMac (25->50 silent; 25->250 policy_max_usd; policy tamper state_tampered) (M-2267)","controlPasses":true,"tampered250Code":"policy_max_usd","tampered250NotMac":true,"tampered50PassesSilently":true,"tamperedPolicyRefused":true}
+{"case":"K-4618 DEFLATE amountUsd 50->5 under maxUsd 10: original refused, deflated ACCEPTED (gate bypass); creation of such a state refused by SDK; inflate 25->150 only blocks resume (M-2268)","originalRefused":true,"deflatedAccepted":true,"creationRefused":true,"inflatedRefused":true}
+{"case":"K-4619 K-4482 follow-up: plan bridge.amount 10000 + amountUsd omitted ACCEPTED (plan.bridge.amount never read); 'abc' refused, null passes as 0 (M-2269)","omittedHugePasses":true,"abcRefused":true,"nullPasses":true}
+{"case":"K-4620 K-4481 follow-up: mixed worstLoss 299 passes at cap 300, 301 refused; same-kind no worstLossBps passes at cap 0 (M-2270)","mixed299Passes":true,"mixed301Refused":true,"sameKindPassesAt0":true}
+{"case":"K-4621 NEW request.* OUTSIDE stateMac: tampered arbiter ACCEPTED, tampered template ACCEPTED, tampered amount refused (M-2271)","controlPasses":true,"tamperedArbiterAccepted":true,"tamperedTemplateAccepted":true,"tamperedAmountRefused":true}
+{"case":"K-4621 MACHINE tampered arbiter reaches openAgreement: machine done, agreement 7 opened with arbiter=attacker (M-2271)","machineDone":true,"agreementId":"7","openedTemplate":"arbiter_escrow","openedArbiter":"0x3333333333333333333333333333333333333333","openedArbiterIsAttacker":true,"openedAmount":"25"}
+{"case":"K-4621 CONTROL honest state opens with honest arbiter (M-2271)","machineDone":true,"openedArbiter":"0x7777777777777777777777777777777777777777","openedArbiterIsHonest":true}
+{"case":"K-4631 request.terms tamper: verify ACCEPTS but verifyOpen HALTS agreement_mismatch (fail-closed) (M-2281)","verifyAccepts":true,"haltedMismatch":true,"openNotCalled":true}
+{"case":"K-4632 state.plan tamper: verify ACCEPTS, plan is display-only (no runtime consumer) (M-2282)","verifyAccepts":true}
+{"case":"K-4633 template swap arbiter_escrow->optimistic: machine opens optimistic agreement (same family as K-4621) (M-2283)","machineDone":true,"openedTemplate":"optimistic","openedIsOptimistic":true}
+{"case":"K-4634 bridge.amountUsd tamper (MAC'd) refused (M-2284)","bridgedControlPasses":true,"tamperedRefused":true}
+{"case":"K-4635 needRaw tamper refused (M-2285)","tamperedRefused":true}
+{"case":"K-4636 planDigest tamper refused (M-2286)","tamperedRefused":true}
+{"case":"K-4637 chain tamper refused (M-2287)","tamperedRefused":true}
+{"case":"K-4638 seller tamper refused (M-2288)","tamperedRefused":true}
+{"case":"K-4639 runSettleMachine verifyOpen amount mismatch halts (M-2289)","haltedMismatch":true,"openNotCalled":true}
+{
+  "mode": "settle-pure-minor19",
+  "cases": 38
+}

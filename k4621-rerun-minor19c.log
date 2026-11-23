@@ -1,0 +1,21 @@
+=== MODE k4621 ===
+node k4621 exit=0
+=== SUMMARY ===
+[K-2190 CONTROL deal(optimistic) kind-5 value=now, windowHours=48 asked] {"case":"K-2190 CONTROL deal(optimistic) kind-5 value=now, windowHours=48 asked","sdkSent":false,"sdkThrew":"Bull SDK safety check failed: the objection window is another length than the windowHours you asked for.","agreementId":null,"refusedBySdkWindowCheck":true}
+[
+[K-2191 CONTROL deal(balance_trigger) data=balanceOf(attacker) value=1] {"case":"K-2191 CONTROL deal(balance_trigger) data=balanceOf(attacker) value=1","sdkSent":false,"sdkThrew":"Bull SDK safety check failed: the balance condition watches another wallet or minimum than you asked for.","agreementId":null,"refusedBySdkBalanceCheck":true}
+[
+[K-2192 deal(panel) quorum swapped to [attacker]/k=1] {"case":"K-2192 deal(panel) quorum swapped to [attacker]/k=1","sdkSent":true,"sdkThrew":"","agreementId":"1","attackerVoted":true,"released":true,"payeeGainedUsdg":"500","exploited":true}
+[
+[K-2193 deal(confirmed_with_cooling) kind-9 value=3600, windowHours=720 asked] {"case":"K-2193 deal(confirmed_with_cooling) kind-9 value=3600, windowHours=720 asked","sdkSent":true,"sdkThrew":"","agreementId":"1","arbiterAttested":true,"releaseBlockedEarly":true,"releasedAfter1h":true,"payeeGainedUsdg":"500","windowShrunk720hTo1h":true}
+[
+[K-2194 deal(arbiter_escrow) expiryHours=1 asked, server set now+24h] {"case":"K-2194 deal(arbiter_escrow) expiryHours=1 asked, server set now+24h","sdkSent":true,"sdkThrew":"","agreementId":"1","refundBlockedAt1h":true,"refundSucceededAt24h":true,"payerRestoredToPreDeal":true,"lockStretched1hTo24h":true}
+[
+[K-2194c CONTROL deal(arbiter_escrow) expiryHours=1 asked, server honest now+1h] {"case":"K-2194c CONTROL deal(arbiter_escrow) expiryHours=1 asked, server honest now+1h","sdkSent":true,"sdkThrew":"","agreementId":"1","refundSucceededAt1h":true,"payerRestoredToPreDeal":false,"controlClean":false}
+[
+[K-4621 support attest+release arbiter_escrow attacker-arbiter 0x3333... $25 id 7] {"case":"K-4621 support attest+release arbiter_escrow attacker-arbiter 0x3333... $25 id 7","sdkSent":true,"sdkThrew":"","agreementId":"7","agreementIdIs7":true,"attackerArbiterAttested":true,"released":true,"sellerGainedUsdg":"25","payerLostUsdg":"25","sellerPaid25WithoutDelivery":true}
+[
+[K-4621 support attest+release arbiter_escrow attacker-arbiter 0x3333... $25 id 7] {"case":"K-4621 support attest+release arbiter_escrow attacker-arbiter 0x3333... $25 id 7","sdkSent":true,"sdkThrew":"","agreementId":"7","agreementIdIs7":true,"attackerArbiterAttested":true,"released":true,"sellerGainedUsdg":"25","payerLostUsdg":"25","sellerPaid25WithoutDelivery":true}
+[
+[K-4625a B-15 deal(token_price_trigger) conditions never checked (attest-by-payee swap)] {"case":"K-4625a B-15 deal(token_price_trigger) conditions never checked (attest-by-payee swap)","sdkSent":true,"sdkThrew":"","agreementId":"1","payeeSelfAttested":true,"released":true,"payeeGainedUsdg":"500","exploited":true}
+[

@@ -1,0 +1,16 @@
+Bull SDK WARNING: using http://127.0.0.1:3008 instead of https://www.bull.family. Only continue if you run this server yourself.
+[K-4621 support attest+release arbiter_escrow attacker-arbiter 0x3333... $25 id 7] {"case":"K-4621 support attest+release arbiter_escrow attacker-arbiter 0x3333... $25 id 7","sdkSent":true,"sdkThrew":"","agreementId":"7","agreementIdIs7":true,"attackerArbiterAttested":true,"released":true,"sellerGainedUsdg":"25","payerLostUsdg":"25","sellerPaid25WithoutDelivery":true}
+[
+  {
+    "case": "K-4621 support attest+release arbiter_escrow attacker-arbiter 0x3333... $25 id 7",
+    "sdkSent": true,
+    "sdkThrew": "",
+    "agreementId": "7",
+    "agreementIdIs7": true,
+    "attackerArbiterAttested": true,
+    "released": true,
+    "sellerGainedUsdg": "25",
+    "payerLostUsdg": "25",
+    "sellerPaid25WithoutDelivery": true
+  }
+]

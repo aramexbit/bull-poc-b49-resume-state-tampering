@@ -1,0 +1,19 @@
+{
+  "mode": "k4621",
+  "sdk": "b6e7d25c91d1a77f324ec1e97109f01e5ba5110f52f5f1f949fd5ab7d09afe2b",
+  "agreement": "v4.1-0x7AB58fAAe65eFCF0037635382cAA546EaC233DA6",
+  "results": [
+    {
+      "case": "K-4621 support attest+release arbiter_escrow attacker-arbiter 0x3333... $25 id 7",
+      "sdkSent": true,
+      "sdkThrew": "",
+      "agreementId": "7",
+      "agreementIdIs7": true,
+      "attackerArbiterAttested": true,
+      "released": true,
+      "sellerGainedUsdg": "25",
+      "payerLostUsdg": "25",
+      "sellerPaid25WithoutDelivery": true
+    }
+  ]
+}
